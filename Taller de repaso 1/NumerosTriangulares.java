@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class NumerosTriangulares {
     
-    public static boolean esTriangularOptimizado(long numero, int n, long triangularActual) {
+    public static boolean esTriangular(int numero, int n, long triangularActual) {
 
         if (triangularActual == numero) {
             return true;
@@ -12,7 +12,7 @@ public class NumerosTriangulares {
         if (triangularActual > numero) {
             return false;
         }
-        return esTriangularOptimizado(numero, n + 1, triangularActual + n + 1);
+        return esTriangular(numero, n + 1, triangularActual + n + 1);
     }
     
     public static void main(String[] args) {
@@ -29,13 +29,13 @@ public class NumerosTriangulares {
             }
             
             try {
-                long numero = Long.parseLong(linea);
+                int numero = Integer.parseInt(linea);
                 
                 if (numero == 0) {
                     break;
                 }
                 
-                if (esTriangularOptimizado(numero, 1, 1)) {
+                if (esTriangular(numero, 1, 1)) {
                     System.out.println("YES");
                 } else {
                     System.out.println("NO");
